@@ -14,7 +14,6 @@ function changeShopname(){
 
     return eShop
 }
-// console.log(changeShopname());
 
 function changePhoneNumber() {
     let shopNumber = eShop[0].phoneNumber = prompt("Enter number:")
@@ -25,14 +24,14 @@ function changePhoneNumber() {
     return eShop
 }
 
-// console.log(changePhoneNumber());
+
 
 
 function listProductNames() {
     return eShop[0].product.flatMap(onimder => onimder.productName)
 }
 
-// alert(listProductNames())
+
 
 function addProduct() {
     let addproductName = prompt("Add product name:")
@@ -44,19 +43,19 @@ function addProduct() {
 
     return eShop
 }
-// console.log(addProduct());
+
 
 
 function applydiscountCategory() {
     let nameCategory = prompt("Категория аты: ")
     let discount = +prompt("Скидка пайызын жазыңыз: ")
 
-    let filteredcat = eShop[0].product.filter(cat => cat.category == nameCategory )
-    eShop[0].product.map(sum => sum.price - (((100 - discount)/ 100) * sum.price ))
-
-    return eShop
+    
+    eShop[0].product.reduce((total,sum) => total += sum.price * ((100 - discount)/ 100), 0)
+    return eShop[0].product.filter(cat => cat.category == nameCategory )
+    
 }
-// console.log(applydiscountCategory());
+console.log(applydiscountCategory());
 
 
 function menu() {
