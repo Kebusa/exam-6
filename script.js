@@ -91,3 +91,5 @@ function menu() {
     }
     return eShop
 }
+
+console.log(menu());
