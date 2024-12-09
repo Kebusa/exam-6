@@ -50,10 +50,12 @@ function applydiscountCategory() {
     let nameCategory = prompt("Категория аты: ")
     let discount = +prompt("Скидка пайызын жазыңыз: ")
 
+    let filteredcat = eShop[0].product.filter(cat => cat.category == nameCategory )
+    if (filteredcat.length >= 1) {
+        eShop[0].product.reduce((total,sum) => total += sum.price * ((100 - discount)/ 100), 0)
+    }
     
-    eShop[0].product.reduce((total,sum) => total += sum.price * ((100 - discount)/ 100), 0)
-    return eShop[0].product.filter(cat => cat.category == nameCategory )
-    
+    return filteredcat
 }
 console.log(applydiscountCategory());
 
